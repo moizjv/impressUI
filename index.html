@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>impress UI editor | presentation tool based on the power impress.js</title>
+    
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+    <meta name="author" content="Bartek Szopka" />
+	
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <script type="text/javascript" src="js/handlebars-1.0.rc.1.js"></script>
+     <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+     <script type="text/javascript" src="js/ember.min.js"></script>
+	<link href="css/main.css" rel="stylesheet" />
+	<style>
+		body > div{
+			display: inline-block;
+			vertical-align: top;
+		}
+	</style>
+</head>
+
+
+<body>
+
+<div class="editor">
+
+<script type="text/x-handlebars">
+    {{#view App.CreateView }}
+        {{view Ember.TextArea viewName="slideText" valueBinding="view.slideText" placeholder="Text in the slide to be entered"}} 
+		<br>{{view Ember.TextField type="number" valueBinding="view.dataX" viewName="data-x" placeholder="Data x"}}
+		<br>{{view Ember.TextField type="number" valueBinding="view.dataY" viewName="data-y" placeholder="Data y"}}
+   		<br>{{view Ember.Select
+			viewName="klass"
+       		contentBinding="App.select.content"
+       		valueBinding="App.select.selected"
+          }}
+		<br>{{view Ember.TextField type="number" valueBinding="view.dataScale" viewName="data-scale" placeholder="Data scale Range 1-6"}}
+		
+		<div>     
+        <button {{action "createSlide"}}>Create Slide</button>
+		</div>
+    {{/view}}   
+	
+	{{#collection contentBinding="App.impressUIController" tagName="ul" }}
+    <label>
+      	{{view Em.Checkbox checkedBinding="view.content.toBeDeleted"}} {{view.content.slideText}}
+		<br>X : {{view.content.dataX}} Y: {{view.content.dataY}}
+    </label>
+	<br>	
+	
+  	{{/collection}}
+	
+	{{#view Em.Button classBinding="isActive"
+      target="App.impressUIController"
+      action="deleteSlides"}} Deleted Selected Slides
+	{{/view}}
+
+	
+    
+</script>
+</div>
+<iframe id="impressIframe" src="impressui.html" style="width: 900px;
+height: 500px; display: inline-block;">
+</iframe>
+
+
+<script src="js/createImpress.js"></script>
+</script>
+
+
+
+
+</body>
+</html>
+
+
