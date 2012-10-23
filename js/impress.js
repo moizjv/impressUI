@@ -166,7 +166,7 @@
     
     // CHECK SUPPORT
     var body = document.body;
-    
+  //  var body = document.getElementById("impress-wrapper");
     var ua = navigator.userAgent.toLowerCase();
     var impressSupported = 
                           // browser should support CSS 3D transtorms 
@@ -653,7 +653,7 @@
 //
 // In future I think about moving it to make them optional, move to separate files
 // and treat more like a 'plugins'.
-(function ( document, window ) {
+/*(function ( document, window ) {
     'use strict';
     
     // throttling function calls, by Remy Sharp
@@ -789,7 +789,7 @@
         
     }, false);
         
-})(document, window);
+})(document, window);*/
 
 // THAT'S ALL FOLKS!
 //

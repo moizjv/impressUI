@@ -12,6 +12,7 @@ App.CreateView = Ember.View.extend({
 
 	createSlide: function() {
 		var self=this;
+		self.klass=App.select.selected;
 		App.impressUIController.createImpressObject(self);
 		App.impressUIController.createImpressSlides();
 		self.set('slideText','');
@@ -39,20 +40,22 @@ App.impressUIController= Ember.ArrayProxy.create({
 	},
 	
 	createImpressSlides : function() {
-		var slideHolder="";
+		var slideHolder='<div id="overview" class="step" data-x="0" data-y="0" data-scale="10"></div>';
 		$.each(this.content,function(index,value){
-			var testSlide='<div class="'+value.klass+'" data-x="'+value.dataX+'" data-y="'+value.dataY+'" data-scale="'+value.dataScale+'">'+value.slideText+'</div>';
+			var testSlide='<div class="'+value.klass+'" data-x="'+value.dataX+'" data-y="'+value.dataY+'" data-scale="'+value.dataScale+'"  contentEditable=true draggable=true>'+value.slideText+'</div>';
 			slideHolder=slideHolder+"\n"+testSlide;
 		});
 		
-		var impressId=$('#impressIframe').contents().find("#impress");
+		//var impressId=$('#impressIframe').contents().find("#impress");
+		var impressId=$("#impress");
+		
 		if(impressId) {
 			impressId.remove();
 		}
-		var editorId=$('#impressIframe').contents().find("#editor");
+		var editorId=$('#editor');
 		editorId.html('<div id=impress>'+slideHolder+'</div>');
-		$('#impressIframe')[0].contentWindow.impress().init(true);
-		
+	//	$('#impressIframe')[0].contentWindow.impress().init(true);
+		impress().init();
 	},
 	
 	deleteSlides : function() {

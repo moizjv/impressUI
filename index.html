@@ -13,6 +13,10 @@
     <script type="text/javascript" src="js/handlebars-1.0.rc.1.js"></script>
      <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
      <script type="text/javascript" src="js/ember.min.js"></script>
+      <link href="css/impress-demo.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 	<link href="css/main.css" rel="stylesheet" />
 	<style>
 		body > div{
@@ -29,7 +33,7 @@
 
 <script type="text/x-handlebars">
     {{#view App.CreateView }}
-        {{view Ember.TextArea viewName="slideText" valueBinding="view.slideText" placeholder="Text in the slide to be entered"}} 
+        {{view Ember.TextArea  valueBinding="view.slideText" placeholder="Text in the slide to be entered"}} 
 		<br>{{view Ember.TextField type="number" valueBinding="view.dataX" viewName="data-x" placeholder="Data x"}}
 		<br>{{view Ember.TextField type="number" valueBinding="view.dataY" viewName="data-y" placeholder="Data y"}}
    		<br>{{view Ember.Select
@@ -62,10 +66,33 @@
     
 </script>
 </div>
-<iframe id="impressIframe" src="impressui.html" style="width: 900px;
+<!-- <iframe id="impressIframe" src="impressui.html" style="width: 900px;
 height: 500px; display: inline-block;">
 </iframe>
+ -->
+ 
+ <div id="impress-wrapper" style="width: 900px;
+height: 500px; display: inline-block;">
+<div id="impress">
+    
+</div>
 
+<div id="editor">
+</div>
+
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+
+
+<script src="js/impress.js"></script>
+<!-- <script>impress().init();</script> -->
+</div>
 
 <script src="js/createImpress.js"></script>
 </script>
