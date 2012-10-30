@@ -47,13 +47,13 @@ App.impressUIController= Ember.ArrayProxy.create({
 		});
 		
 		//var impressId=$('#impressIframe').contents().find("#impress");
-		var impressId=$("#impress");
+		var impressId=$("#impressUI");
 		
 		if(impressId) {
 			impressId.remove();
 		}
 		var editorId=$('#editor');
-		editorId.html('<div id=impress>'+slideHolder+'</div>');
+		editorId.html('<div id=impressUI>'+slideHolder+'</div>');
 	//	$('#impressIframe')[0].contentWindow.impress().init(true);
 		impress().init();
 	},

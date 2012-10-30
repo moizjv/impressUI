@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>White Board</title>
+
+
+ <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+      <script type="text/javascript" src="js/handlebars-1.0.rc.1.js"></script>
+     <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+     <script type="text/javascript" src="js/ember.min.js"></script>
+     <script type="text/javascript" src="js/jquery-ui-1.9.0.custom.js"></script>
+     
+      <link href="css/whiteboard.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+	<link href="css/main.css" rel="stylesheet" />
+	<link href="css/jquery-ui-1.9.0.custom.css" rel="stylesheet" />
+     <script type="text/javascript" src="js/jquery-ui-1.9.0.custom.js"></script>
+     <link href="css/jquery-ui-1.9.0.custom.css" rel="stylesheet" />
+</head>
+<body>
+<script type="text/x-handlebars">
+ {{#view WhiteBoard.CreateButtonView }}
+  <button {{action "createStep"}}>Create Step</button>
+  <button {{action "createSlide"}}>Create Slide</button>
+ 
+ {{/view}}  
+</script>
+<div id="impress-wrapper">
+
+
+
+<div class="step" ondblclick="this.contentEditable=false;this.contentEditable=false;">Hello</div>
+<div class="step slide" ondblclick="this.contentEditable=true;this.contentEditable=true;">Hello World</div>
+</div>
+<script src="js/whiteBoard.js"></script>
+</body>
+</html>

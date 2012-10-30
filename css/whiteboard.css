@@ -1,0 +1,51 @@
+.slide {
+    display: block;
+
+    width: 450px;
+    height: 350px;
+    padding: 20px 30px;
+
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+
+    color: rgb(102, 102, 102);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -1px;
+}
+
+.step {
+    position: relative;
+    width: 450px;
+    padding: 20px;
+    margin: 10px auto;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    -ms-box-sizing:     border-box;
+    -o-box-sizing:      border-box;
+    box-sizing:         border-box;
+
+    font-family: 'PT Serif', georgia, serif;
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+#impress-wrapper {
+    width: 100%;
+    height: 700px;
+    border: 2px solid black;
+    overflow: hidden;
+    position: relative;
+  /*   top : 50%; */
+}
+
+.ember-button {
+  padding: 8px;
+  margin: 5px 5px 5px 0;
+}
